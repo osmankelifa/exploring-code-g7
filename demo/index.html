@@ -1,177 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>jQuery WebGL Ripples</title>
-<style>
-* { margin: 0; padding: 0; }
-html {
-	height: 100%;
-}
-body {
-	color: #fff;
-	font-size: 16px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	background-image: url(img/bg3.png);
-	background-size: cover;
-	background-position: 50% 0;
-	height: 100%;
-	text-align: center;
-}
+  <head>
+    <title>jQuery WebGL Ripples</title>
+    <link rel="stylesheet" type="text/css" href="../dist/jquery.ripples.css" />
+    <link rel="stylesheet" href="../src/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div class="overlay-text">
+      Water is life:<br />
+      Protecting our most precious Resource
+    </div>
 
-body:before {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	height: 100%;
-}
+    <header id="navbar">Navigation Bar</header>
+    <main>
+      <section id="page2">
+        <div class="canvas-container">
+          <canvas id="pieChart" width="400" height="400"></canvas>
+        </div>
+        <div class="text-section">
+          Worldwide, 2.2 billion people still lack access to safe drinking
+          water.
+        </div>
+      </section>
+      <section id="page3">
+        <div class="page3-container">
+          <div class="circle-container">
+            <img
+              src="img/outer-circle.svg"
+              id="outerCircle"
+              alt="Outer Circle"
+            />
+            <img
+              src="img/inner-circle.svg"
+              id="innerCircle"
+              alt="Inner Circle"
+            />
+            <div class="text-content">
+              <h1>1 <strong class="text-content_in">in</strong> 2</h1>
+              <p>
+                Nearly half of the global population does not have access to
+                safe sanitation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="page4">
+        <div class="page4-text-section">
+          785 million people lack access to clean water.
+        </div>
+      </section>
+    </main>
 
-main {
-	/* display: inline-block; */
-	/* vertical-align: middle; */
-	/* background: url(img/bg.jpg);  */
-	/* padding:  100px;
-	max-width: 500px;
-	text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-	box-shadow: 0 5px 15px rgba(0,0,0,0.5);  */
-} */
-
-h1 {
-	font-size: 32px;
-}
-h2 {
-	font-size: 18px;
-	margin-top: 6px;
-}
-p {
-	text-align: left;
-	margin-top: 20px;
-}
-a {
-	color: #ff6800;
-}
-pre {
-	text-align: left;
-	margin-top: 20px;
-}
-
-.error {
-	display: none;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	background: #000;
-	color: #f00;
-	padding: 5px;
-	max-width: 50%;
-}
-
-/* button {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	padding: 0 0.8em;
-	line-height: 2em;
-	border: none;
-	background: #666;
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
-	border-radius: 4px;
-	cursor: pointer;
-	margin-bottom: 0.5em;
-	box-shadow: 0 2px 3px rgba(0,0,0,0.5);
-}
-
-button:hover {
-	background: #482525;
-} */
-
-code { font-size: 0.8em; display: inline; }
-
-.disable {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-}
-
-.code-string { color:#ec7600 }
-.code-cbracket { font-weight:bold }
-.code-number { color:#ffcd22 }
-
-</style>
-</head>
-<body>
-
-<main>
-	<header>
-	</header>
-
-	<pre><code>
-$(<span class="code-string">'body'</span>).ripples(<span class="code-cbracket">{</span>
-	resolution: <span class="code-number">512</span>,
-	dropRadius: <span class="code-number">20</span>,
-	perturbance: <span class="code-number">0.04</span>,
-<span class="code-cbracket">}</span>);
-	</code></pre>
-
-	<p>You can add drops programmatically by doing <code>$(<span class="code-string">'body'</span>).ripples(<span class="code-string">"drop"</span>, x, y, radius, strength)</code></p>
-
-	<p>And you can change its state:<br>
-	<button class="js-ripples-pause" type="button">
-		<code>$(<span class="code-string">'body'</span>).ripples(<span class="code-string">"pause"</span>)</code>
-	</button>
-
-	<button class="js-ripples-play" type="button">
-		<code>$(<span class="code-string">'body'</span>).ripples(<span class="code-string">"play"</span>)</code>
-	</button>
-	</p>
-
-
-
-<div class="error"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="../dist/jquery.ripples.js"></script>
-<script>
-$(document).ready(function() {
-	try {
-		$('body').ripples({
-			resolution: 512,
-			dropRadius: 20, //px
-			perturbance: 0.04,
-		});
-		$('main').ripples({
-			resolution: 128,
-			dropRadius: 10, //px
-			perturbance: 0.04,
-			interactive: false
-		});
-	}
-	catch (e) {
-		$('.error').show().text(e);
-	}
-
-	$('.js-ripples-disable').on('click', function() {
-		$('body, main').ripples('destroy');
-		$(this).hide();
-	});
-
-	$('.js-ripples-play').on('click', function() {
-		$('body, main').ripples('play');
-	});
-
-	$('.js-ripples-pause').on('click', function() {
-		$('body, main').ripples('pause');
-	});
-
-	// Automatic drops
-	setInterval(function() {
-		var $el = $('main');
-		var x = Math.random() * $el.outerWidth();
-		var y = Math.random() * $el.outerHeight();
-		var dropRadius = 20;
-		var strength = 0.04 + Math.random() * 0.04;
-
-		$el.ripples('drop', x, y, dropRadius, strength);
-	}, 400);
-});
-</script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="../dist/jquery.ripples.js"></script>
+    <script src="../src/basic.js"></script>
+    <script src="../src/wordAppear.js"></script>
+    <script src="../src/pieChart.js"></script>
+    <script src="../src/2in1.js"></script>
+    <script src="../src/scrollAnimation.js"></script>
+  </body>
 </html>

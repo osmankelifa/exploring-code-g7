@@ -1,0 +1,64 @@
+body {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(../demo/img/bg3.png);
+  background-size: cover;
+  background-position: 50% 0;
+  height: 100%;
+  text-align: center;
+}
+body:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+main {
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 18px;
+  margin-top: 6px;
+}
+p {
+  text-align: left;
+  margin-top: 20px;
+}
+a {
+  color: #ff6800;
+}
+pre {
+  text-align: left;
+  margin-top: 20px;
+}
+.error {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  color: #f00;
+  padding: 5px;
+  max-width: 50%;
+}
+code {
+  font-size: 0.8em;
+  display: inline;
+}
+.disable {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.code-string {
+  color: #ec7600;
+}
+.code-cbracket {
+  font-weight: bold;
+}
+.code-number {
+  color: #ffcd22;
+}
