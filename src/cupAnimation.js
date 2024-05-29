@@ -16,5 +16,5 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 2, // Transition to brown over 2 seconds
       ease: "linear",
     });
-  }, 1000);
+  }, 300);
 });

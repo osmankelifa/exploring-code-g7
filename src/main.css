@@ -172,7 +172,7 @@ section {
 }
 
 .text-section {
-  padding: 40px;
+  padding: 80px;
   margin: 20px;
   border-radius: 8px;
   flex: 1;
@@ -267,11 +267,6 @@ canvas {
   padding: 60px;
 }
 
-.page4-text-section {
-  padding: 80px;
-  font-size: 40px;
-  text-align: center;
-}
 /* page5 */
 .cup {
   position: relative;
@@ -312,7 +307,7 @@ canvas {
   background-size: cover;
   background-position: 0px 350px;
   background-repeat: repeat-x;
-  animation: filling 10s ease-in-out infinite;
+  animation: filling 8s ease-in-out infinite;
   filter: var(--wave-filter, brightness(1) sepia(0) hue-rotate(0deg));
   border-radius: 15px;
   border-top-left-radius: 5px;
@@ -328,11 +323,37 @@ canvas {
   }
 }
 
-.page5-text-section {
-  padding: 80px;
-  font-size: 40px;
-  text-align: center;
+/* page6 */
+.child-grid-container {
+  position: relative;
+  height: 280px; /* Maintain height to prevent text movement */
 }
+
+.child-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.child-grid img {
+  width: 120px;
+  height: 120px;
+  filter: invert(80%);
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Smooth fade out */
+}
+
+/*page7*/
+
+/*page8*/
+.custom-link {
+  text-decoration: none;
+  color: #a5d7e8;
+}
+
 /* ending */
 
 #ending-part {
