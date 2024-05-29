@@ -62,7 +62,7 @@ section {
 }
 
 .text-section {
-  padding: 20px;
+  padding: 40px;
   margin: 20px;
   border-radius: 8px;
   flex: 1;
@@ -75,7 +75,7 @@ canvas {
 
 /* page3 */
 .page3-container {
-  padding-top: 400px;
+  padding-top: 300px;
   padding-bottom: 300px;
   height: 100vh;
   display: flex;
