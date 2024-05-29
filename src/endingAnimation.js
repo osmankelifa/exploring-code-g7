@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const endingPart = document.getElementById("ending-part");
+  const sound = document.getElementById("waterDropSound"); // Get the audio element
 
   function playAnimation() {
     const dropContainer = endingPart.querySelector(".drop-container");
     const drop = dropContainer.querySelector(".drop");
     const h2 = endingPart.querySelector("h2");
 
+    // Reset animations
     drop.style.animation = "none";
     h2.style.animation = "none";
     dropContainer.style.animation = "none";
@@ -15,9 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
     void h2.offsetWidth;
     void dropContainer.offsetWidth;
 
-    drop.style.animation = "drip 4s forwards";
+    // Start animations
+    drop.style.animation = "drip 3s forwards";
     h2.style.animation = "appear 2s 2.5s forwards";
     dropContainer.style.animation = "";
+
+    // Play the sound
+    sound.currentTime = 0; // Reset the audio to start
+    sound.play(); // Play the audio
   }
 
   function isElementInViewport(el) {
