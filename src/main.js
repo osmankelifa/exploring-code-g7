@@ -887,3 +887,6 @@ $.fn.ripples.noConflict = function() {
 	$.fn.ripples = old;
 	return this;
 };
+
+
+

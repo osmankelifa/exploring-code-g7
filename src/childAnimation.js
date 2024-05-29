@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+jdocument.addEventListener("DOMContentLoaded", function () {
   const childGrid = document.querySelector(".child-grid");
   const page6 = document.getElementById("page6");
   let timeline = gsap.timeline({ paused: true });

@@ -49,3 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     wordsLine1.length * 0.5
   );
 });
+
+
+function button() {
+	window.location.href = "https://www.unicef.org";
+}

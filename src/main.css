@@ -1,21 +1,131 @@
 body,
 html {
   height: 100%;
+  width: 100%;
   font-family: Arial, sans-serif;
   background-color: #0b2447;
   margin: 0;
   padding: 0;
 }
 
-header#navbar {
+/* .navbar {
   width: 100%;
-  background: #dbedf4;
-  color: white;
-  padding: 10px 20px;
+  background: #39a4cf, 0.5;
+  color: rgb(10, 9, 9);
+  padding: 40px 20px;
   text-align: center;
   position: fixed;
   top: 0;
   transition: top 0.3s;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between
+} */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* backdrop-filter: blur(10px); */
+  border-bottom: 2px solid rgba(169, 165, 165, 0.2);
+  margin-bottom: 20px;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(106, 178, 246, 0.4), transparent);
+  transition: .5s;
+}
+.navbar:hover::before {
+  left: 100%;
+}
+
+.logo {
+  margin-left: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+/* .button {
+  margin-right: 70px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 8px;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border-radius: 6px;
+box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+box-sizing: border-box;
+}
+
+.button:hover {
+  transition: 0.2s;
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 2px 2px 2px;
+} */
+
+
+
+
+.button {
+align-items: center;
+/* appearance: none; */
+background-image: radial-gradient(100% 100% at 100% 0, #0d597a 0, #0b5683 100%);
+border: 0;
+border-radius: 6px;
+box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display:flex;
+font-family: "JetBrains Mono",monospace;
+height: 48px;
+justify-content: center;
+line-height: 1;
+list-style: none;
+overflow: hidden;
+padding-left: 16px;
+padding-right: 16px;
+position: relative;
+text-align: left;
+text-decoration: none;
+transition: box-shadow .15s,transform .15s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+will-change: box-shadow,transform;
+font-size: 18px;
+margin-right: 30px;
+}
+
+.button:focus {
+box-shadow: #2a2a2b 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button:hover {
+box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #0b5683 0 -3px 0 inset;
+transform: translateY(-2px);
+}
+
+.button:active {
+box-shadow: #4b4b4c 0 3px 7px inset;
+transform: translateY(2px);
 }
 
 .ripple-effect {
@@ -26,12 +136,12 @@ header#navbar {
 
 .overlay-text {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 5%;
   transform: translateY(-50%);
   z-index: 2;
   color: #0b2447;
-  font-size: 72px;
+  font-size: 350%;
   text-align: left;
   width: 90%;
   padding: 20px;
