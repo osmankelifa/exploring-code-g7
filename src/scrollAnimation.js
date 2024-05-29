@@ -104,7 +104,7 @@ gsap.to(innerCircle, {
     trigger: ".page3-container",
     start: "top top",
     end: "bottom+=500 bottom", // Adjust this value to control the end point
-    scrub: 1, // Adjust scrub value for desired speed
+    scrub: 0.5, // Adjust scrub value for desired speed
     markers: false, // Hide markers
     onEnter: () => {
       rotationSpeedInner = 0.5; // Initial speed for inner circle
@@ -122,7 +122,7 @@ gsap.to(outerCircle, {
     trigger: ".page3-container",
     start: "top top",
     end: "bottom+=500 bottom", // Adjust this value to control the end point
-    scrub: 1, // Adjust scrub value for desired speed
+    scrub: 0.5, // Adjust scrub value for desired speed
     markers: false, // Hide markers
     onEnter: () => {
       rotationSpeedInner = 0.5; // Initial speed for inner circle
