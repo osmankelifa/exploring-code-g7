@@ -21,13 +21,14 @@
 			<img src="./img/worldlogo4.png" class="logo"></img>
 			<button class="button" onclick="button()">UNICEF</button>
 		</nav>
+		<!-- page 1 -->
     <div class="overlay-text">
       Water is life:<br />
       Protecting our most precious Resource
     </div>
 
-    <!-- <header id="navbar">Navigation Bar</header> -->
     <main>
+		<!-- page 2 -->
       <section id="page2">
         <div class="canvas-container">
           <canvas id="pieChart" width="400" height="400"></canvas>
@@ -37,6 +38,7 @@
           still lack access to safe drinking water.
         </div>
       </section>
+	  <!-- page 3 -->
       <section id="page3">
         <div class="page3-container">
           <div class="circle-container">
@@ -60,6 +62,7 @@
           </div>
         </div>
       </section>
+	  <!-- page 4 -->
       <section id="page4">
         <div class="svg-container">
           <img
@@ -81,6 +84,7 @@
           open defecation.
         </div>
       </section>
+	  <!-- page 5 -->
       <section id="page5">
         <div class="cup"></div>
         <div class="text-section">
@@ -90,19 +94,32 @@
           as cholera, dysentery, typhoid, and polio.
         </div>
       </section>
-      <section id="page6">
-        <div class="child-grid-container">
-          <div class="child-grid"></div>
-        </div>
-        <div class="text-section">
-          Every 2 minutes, a child dies from a water-related disease.
-        </div>
-      </section>
+	  <!-- page 6 -->
+	  <section id="page6">
+		<div class="content-container">
+		  <div class="clock-container">
+			<div class="clock">
+			  <div class="clock__second"></div>
+			  <div class="clock__axis"></div>
+			</div>
+		  </div>
+		  <div class="child-grid-container">
+			<div class="child-grid"></div>
+		  </div>
+		</div>
+		<div class="text-section">
+		  Every <strong class="text-content_in"> 2 minutes</strong>, a child dies from a water-related disease.
+		</div>
+	  </section>
+	  
+      <!-- page 7 -->
+	  
       <section id="page7">
-        <div class="page7-text-section">
+        <div class="text-section">
           785 million people lack access to clean water.
         </div>
       </section>
+	  <!-- page 8 -->
       <section id="page8">
         <div class="text-section">
           Clean water is essential for life, yet many communities around the
@@ -113,6 +130,7 @@
           >
         </div>
       </section>
+	   <!-- ending page  -->
       <section id="ending-part">
         <audio
           id="waterDropSound"
@@ -137,5 +155,6 @@
     <script src="../src/wallAnimation.js"></script>
     <script src="../src/cupAnimation.js"></script>
     <script src="../src/childAnimation.js"></script>
+	
   </body>
 </html>

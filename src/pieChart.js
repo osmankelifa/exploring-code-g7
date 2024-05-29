@@ -41,7 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
   canvas.width = 600;
   canvas.height = 600;
 
+  let isAnimating = false;
+
   function drawPieChart() {
+    if (isAnimating) return; // Prevent new animation if one is already in progress
+    isAnimating = true;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
@@ -57,13 +62,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const increment = targetAngle / (duration * fps);
 
     function animate() {
+      ctx.clearRect(0, 0, 600, 600); // Ensure the canvas is clear before each frame
+      ctx.beginPath();
+      ctx.arc(300, 300, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = "#A5D7E8";
+      ctx.fill();
+      ctx.closePath();
+
       ctx.beginPath();
       ctx.moveTo(300, 300);
-      ctx.arc(300, 300, radius, currentAngle, currentAngle + increment);
-      ctx.lineTo(300, 300);
+      ctx.arc(300, 300, radius, 0, currentAngle);
+      ctx.fillStyle = "#A5D7E8";
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.moveTo(300, 300);
+      ctx.arc(300, 300, radius, 0, currentAngle);
       ctx.fillStyle = "#8B4513";
       ctx.fill();
       ctx.closePath();
+
       currentAngle += increment;
       if (currentAngle < targetAngle) {
         requestAnimationFrame(animate);
@@ -84,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let step = 0;
 
     function animateSeparation() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, 600, 600); // Ensure the canvas is clear before each frame
 
       drawPieChartBase();
 
@@ -111,6 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
       step++;
       if (step <= steps) {
         requestAnimationFrame(animateSeparation);
+      } else {
+        isAnimating = false; // Reset animation flag when complete
       }
     }
 
@@ -118,6 +139,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function drawPieChartBase() {
+    ctx.clearRect(0, 0, 600, 600); // Ensure the canvas is clear before each frame
+
     ctx.beginPath();
     ctx.arc(300, 300, radius, 0, 2 * Math.PI);
     ctx.fillStyle = "#A5D7E8";
@@ -148,7 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
     trigger: "#page2",
     start: "top center",
     onEnter: () => {
-      drawPieChart();
+      if (!isAnimating) {
+        drawPieChart();
+      }
     },
   });
 
