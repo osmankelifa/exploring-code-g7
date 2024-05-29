@@ -33,7 +33,6 @@ $(document).ready(function () {
     $el.ripples("drop", x, y, dropRadius, strength);
   }, 400);
 
-  // 添加触摸事件支持
   $("body").on("touchstart", function (e) {
     const touch = e.touches[0];
     const x = touch.pageX;

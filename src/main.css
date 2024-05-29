@@ -48,7 +48,7 @@ section {
   clear: both;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 居中对齐整个section的内容 */
+  align-items: center;
 }
 
 /* page2 */
@@ -57,8 +57,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh; /* 调整高度以确保适当的视觉效果 */
-  margin-bottom: 20px; /* 给下方的文字留出空间 */
+  height: 60vh;
+  margin-bottom: 20px;
 }
 
 .text-section {
@@ -76,6 +76,7 @@ canvas {
 /* page3 */
 .page3-container {
   padding-top: 400px;
+  padding-bottom: 300px;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -88,7 +89,7 @@ canvas {
 .circle-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* 确保高度占据整个视口 */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,12 +104,12 @@ canvas {
 
 #innerCircle {
   z-index: 2;
-  width: 60vw; /* 调整内圆大小 */
+  width: 60vw;
 }
 
 #outerCircle {
   z-index: 1;
-  width: 80vw; /* 调整外圆大小 */
+  width: 80vw;
 }
 
 .text-content {
@@ -139,4 +140,194 @@ canvas {
 
 .text-content_in {
   color: red;
+}
+/* page4 */
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.svg-image {
+  width: 15vw;
+  height: auto;
+  filter: invert(80%);
+  padding: 60px;
+}
+
+.page4-text-section {
+  padding: 80px;
+  font-size: 40px;
+  text-align: center;
+}
+/* page5 */
+.cup {
+  position: relative;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 180px;
+  border: 6px solid #262626;
+  border-top: 2px solid transparent;
+  border-radius: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: transparent;
+  box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
+  margin-left: 200px;
+  margin-top: 100px;
+}
+
+.cup::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  border: 6px solid #fff;
+  right: -57px;
+  top: 30px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
+.cup::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://image.ibb.co/fmHm66/wave.png) no-repeat;
+  background-size: cover;
+  background-position: 0px 350px;
+  background-repeat: repeat-x;
+  animation: filling 10s ease-in-out infinite;
+  filter: var(--wave-filter, brightness(1) sepia(0) hue-rotate(0deg));
+  border-radius: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+@keyframes filling {
+  50% {
+    background-position: 3000px 0px;
+  }
+  100% {
+    background-position: 6000px 350px;
+  }
+}
+
+.page5-text-section {
+  padding: 80px;
+  font-size: 40px;
+  text-align: center;
+}
+/* ending */
+
+#ending-part {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-align: center;
+}
+
+div.drop-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 200px;
+  width: 200px;
+}
+
+div.drop {
+  position: absolute;
+  top: -25%;
+  width: 100%;
+  height: 100%;
+  border-radius: 100% 5% 100% 100%;
+  transform: rotate(-45deg);
+  margin: 0px;
+  background: deepskyblue;
+  animation: drip 4s forwards;
+}
+
+h2 {
+  color: white;
+  position: absolute;
+  font-size: 2.5em;
+  height: 1em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: auto;
+  text-align: center;
+  opacity: 0;
+  animation: appear 2s 2.5s forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+div.drop-container:before,
+div.drop-container:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 55%;
+  right: 50%;
+  transform: translate(50%) rotateX(75deg);
+  border-radius: 100%;
+  opacity: 0;
+  width: 75%;
+  height: 75%;
+  border: 5px solid skyblue;
+  animation: dripple 2s ease-out 1s;
+}
+
+div.drop-container:after {
+  animation: dripple 2s ease-out 1.7s;
+}
+
+@keyframes drip {
+  45% {
+    top: 0;
+    border-radius: 100% 5% 100% 100%;
+    transform: rotate(-45deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+    border-radius: 100%;
+  }
+}
+
+@keyframes dripple {
+  0% {
+    width: 150px;
+    height: 150px;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    top: -20%;
+    opacity: 0;
+  }
 }
