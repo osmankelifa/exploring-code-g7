@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tl.from(
       wordSpan,
-      {
+      { 
         duration: 1,
         y: 100,
         opacity: 0,
@@ -52,5 +52,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function button() {
-	window.location.href = "https://www.unicef.org";
+  window.open("https://www.unicef.org", "_blank");
 }

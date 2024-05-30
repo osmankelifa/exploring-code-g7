@@ -1,8 +1,10 @@
+
+
 body,
 html {
   height: 100%;
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: serif;
   background-color: #0b2447;
   margin: 0;
   padding: 0;
@@ -149,7 +151,7 @@ box-sizing: border-box;
   left: 5%;
   transform: translateY(-50%);
   z-index: 2;
-  color: #0b2447;
+  color: #0015ffd2;
   font-size: 350%;
   text-align: left;
   width: 90%;
