@@ -171,6 +171,10 @@ section {
 }
 
 /* page2 */
+#page2 {
+  padding-top: 150px;
+}
+
 .canvas-container {
   padding-top: 100px;
   display: flex;
@@ -348,8 +352,8 @@ canvas {
 
 /* Clock styles */
 .clock-container {
-  width: 200px; /* Adjust width as needed */
-  height: 200px; /* Adjust height as needed */
+  width: 150px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
   display: flex;
   justify-content: center;
   align-items: center;
