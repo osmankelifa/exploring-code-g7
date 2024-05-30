@@ -423,6 +423,26 @@ canvas {
 }
 
 /*page7*/
+#page7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.canvas-container {
+  width: 100%;
+  max-width: 600px; /* Adjust the width as needed */
+  height: 400px;
+  margin: auto; /* Center the canvas if needed */
+  padding: 20px 0;
+}
+
+#barChart {
+  width: 100%;
+  height: 100%;
+}
 
 /*page8*/
 .custom-link {
