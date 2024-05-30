@@ -147,16 +147,18 @@ box-sizing: border-box;
 
 .overlay-text {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 5%;
   transform: translateY(-50%);
   z-index: 2;
-  color: #0015ffd2;
+  color: #D2042D;
   font-size: 350%;
   text-align: left;
   width: 90%;
   padding: 20px;
   border-radius: 10px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .overlay-text span {
@@ -264,7 +266,7 @@ canvas {
 }
 
 .text-content_in {
-  color: red;
+  color: #D2042D;
 }
 /* page4 */
 .svg-container {
@@ -453,7 +455,7 @@ canvas {
 /*page8*/
 .custom-link {
   text-decoration: none;
-  color: #a5d7e8;
+  color: #D2042D;
 }
 
 /* ending */

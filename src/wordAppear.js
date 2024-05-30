@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.querySelector(".overlay-text");
   const line1 = "Water is life:";
-  const line2 = "Protecting our most precious Resource";
+  const line2 = "Protecting our most precious Resource!";
 
   const wordsLine1 = line1.split(" ");
   const wordsLine2 = line2.split(" ");
