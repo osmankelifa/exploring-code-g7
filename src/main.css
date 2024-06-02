@@ -1,5 +1,3 @@
-
-
 body,
 html {
   height: 100%;
@@ -151,7 +149,7 @@ box-sizing: border-box;
   left: 5%;
   transform: translateY(-50%);
   z-index: 2;
-  color: #D2042D;
+  color: #d2042d;
   font-size: 350%;
   text-align: left;
   width: 90%;
@@ -266,7 +264,7 @@ canvas {
 }
 
 .text-content_in {
-  color: #D2042D;
+  color: #d2042d;
 }
 /* page4 */
 .svg-container {
@@ -455,7 +453,7 @@ canvas {
 /*page8*/
 .custom-link {
   text-decoration: none;
-  color: #D2042D;
+  color: #d2042d;
 }
 
 /* ending */
@@ -465,7 +463,7 @@ canvas {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 20px;
   text-align: center;
 }
@@ -565,4 +563,18 @@ div.drop-container:after {
     top: -20%;
     opacity: 0;
   }
+}
+.drop-text {
+  margin-top: 600px;
+}
+
+/* 3D */
+#three-container {
+  width: 800px; /* Width of the 3D view */
+  height: 600px; /* Height of the 3D view */
+  margin: 50px auto; /* Vertical margin 50px, horizontally centered */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b2447; /* Optional: background color */
 }
