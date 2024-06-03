@@ -58,7 +58,7 @@ html {
 }
 
 .logo {
-  margin-left: 20px;
+  margin-left: 2%;
   height: 60px;
   width: 60px;
 }
@@ -149,14 +149,15 @@ box-sizing: border-box;
   left: 5%;
   transform: translateY(-50%);
   z-index: 2;
-  color: #d2042d;
+  color: #ffffff;
   font-size: 350%;
   text-align: left;
   width: 90%;
   padding: 20px;
   border-radius: 10px;
   font-style: italic;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-family: serif;
 }
 
 .overlay-text span {
