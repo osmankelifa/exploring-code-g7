@@ -9,20 +9,6 @@ html {
   overflow-x: hidden;
 }
 
-/* .navbar {
-  width: 100%;
-  background: #39a4cf, 0.5;
-  color: rgb(10, 9, 9);
-  padding: 40px 20px;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  transition: top 0.3s;
-  z-index: 50;
-  display: flex;
-  justify-content: space-between
-} */
-
 .navbar {
   position: absolute;
   top: 0;
@@ -63,27 +49,6 @@ html {
   height: 60px;
   width: 60px;
 }
-
-/* .button {
-  margin-right: 70px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: rgb(255, 255, 255);
-  border-radius: 8px;
-  cursor: pointer;
-  border: 1px solid;
-  padding: 8px;
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-  border-radius: 6px;
-box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-box-sizing: border-box;
-}
-
-.button:hover {
-  transition: 0.2s;
-  color: rgb(255, 255, 255);
-  box-shadow: 1px 2px 2px 2px;
-} */
 
 .button {
   align-items: center;
@@ -623,8 +588,6 @@ div.drop-container:after {
 }
 
 /* 3D */
-
-/* 3D */
 #three-container {
   width: 800px; /* Width of the 3D view */
   height: 600px; /* Height of the 3D view */
@@ -655,21 +618,6 @@ div.drop-container:after {
   left: -2px;
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-}
-
-#three-container::after {
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-bottom: 2px solid #ccc;
-  border-right: 2px solid #ccc;
-  box-sizing: border-box;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
-}
-
-#three-container::before {
   clip-path: polygon(
     0% 0%,
     10% 0%,
@@ -687,18 +635,26 @@ div.drop-container:after {
 #three-container::after {
   clip-path: polygon(
     90% 0%,
-    100% 0%,
-    100% 10%,
-    90% 10%,
-    90% 90%,
-    100% 90%,
-    100% 100%,
-    90% 100%,
-    90% 100%,
-    90% 0%
+    /* Start from the right side, near the top corner */ 100% 0%,
+    /* Move to the very right top corner */ 100% 10%,
+    /* Move down a bit on the right side */ 90% 10%,
+    /* Move back left to the start point vertically aligned */ 90% 100%,
+    /* Move straight down to the bottom */ 100% 100%,
+    /* Move to the right bottom corner */ 100% 90%,
+    /* Move up a bit on the right side */ 90% 90%,
+    /* Move left to align vertically with the starting point */ 90% 0%
+      /* Close the polygon moving back to the initial point */
   );
+  border-top: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  border-left: 2px solid transparent; /* Keeping the left border transparent */
+  box-sizing: border-box;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
 }
-
 /* footer */
 .site-footer {
   text-align: center;
