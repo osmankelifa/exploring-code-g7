@@ -457,6 +457,10 @@ canvas {
 }
 
 /* ending */
+/*body {
+  background-color: #3498DB;
+  overflow: hidden;
+}*/
 
 #ending-part {
   position: relative;
@@ -468,7 +472,7 @@ canvas {
   text-align: center;
 }
 
-div.drop-container {
+.drop-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -479,7 +483,7 @@ div.drop-container {
   width: 200px;
 }
 
-div.drop {
+.drop-container .drop {
   position: absolute;
   top: -25%;
   width: 100%;
@@ -489,6 +493,156 @@ div.drop {
   margin: 0px;
   background: deepskyblue;
   animation: drip 4s forwards;
+}
+
+#water-saving-technologies {
+  background-color: #A5D7E8;
+  width: 100%;
+  padding: 20px;
+}
+
+.water-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 0 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
+}
+
+.water-heading h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.animation-container {
+  position: relative;
+  right: 0;
+  top: 50%;
+  /*transform: translateY(-50%);*/
+  display: flex;
+  align-items: center;
+}
+
+.animation-container .drop {
+  width: 10px;
+  height: 10px;
+  background: #FFF;
+  position: absolute;
+  top:-20px;
+  left: 50%;  
+  border-radius: 20px;
+  animation: drip 2s cubic-bezier(1, 0, .91, .19) infinite;
+  transform: translateX(-50%);
+}
+
+
+.animation-container .drop:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 15px solid rgba(255, 255, 255, 1);
+  top: -10px;
+}
+
+.animation-container .wave {
+  width: 2px;
+  height: 1px;
+  border: #FFF 7px solid;
+  border-radius: 300px / 150px;
+  animation: ripple 2s infinite;
+  margin-left: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.animation-container .wave:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 1px;
+  border: #FFF 5px solid;
+  border-radius: 300px / 150px;
+  animation: ripple-2 2s infinite;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+  }
+  to {
+    width: 600px;
+    height: 300px;
+    border-width: 1px;
+    top: -100px;
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    width: 200px;
+    height: 100px;
+    border-width: 1px;
+    top: 100px;
+    left: 200px;
+  }
+}
+
+@keyframes drip {
+  to {
+    top: 190px;
+  }
+}
+
+.g_img-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.w-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.img_reveal-img {
+  height: auto;
+  border-radius: 8px;
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.p_img-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.p_img-text p {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 h2 {
@@ -516,8 +670,8 @@ h2 {
   }
 }
 
-div.drop-container:before,
-div.drop-container:after {
+.drop-container:before,
+.drop-container:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -532,21 +686,8 @@ div.drop-container:after {
   animation: dripple 2s ease-out 1s;
 }
 
-div.drop-container:after {
+.drop-container:after {
   animation: dripple 2s ease-out 1.7s;
-}
-
-@keyframes drip {
-  45% {
-    top: 0;
-    border-radius: 100% 5% 100% 100%;
-    transform: rotate(-45deg);
-  }
-  100% {
-    top: 0;
-    transform: rotate(0deg);
-    border-radius: 100%;
-  }
 }
 
 @keyframes dripple {
