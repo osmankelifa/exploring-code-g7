@@ -678,7 +678,24 @@ div.drop-container:after {
 .p_img-text {
   padding-left: 20px; /* Padding between the image and the text */
 }
+.p_img-text p {
+  display: none;
+  opacity: 1;
+  font-size: 1.2em;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease;
+  margin: 10px;
+  overflow: hidden;
+  max-height: 0;
+}
 
+.p_img-text h3 {
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.p_img-text h3:hover {
+  text-decoration: underline;
+}
 @media (max-width: 768px) {
   .g_img-text {
     flex-direction: column; /* Stack image and text vertically on small screens */
