@@ -1,13 +1,13 @@
-jdocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const childGrid = document.querySelector(".child-grid");
   const page6 = document.getElementById("page6");
   let timeline = gsap.timeline({ paused: true });
 
   function createGrid() {
     childGrid.innerHTML = ""; // Clear existing content to reset the grid
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 5; i++) {
       const img = document.createElement("img");
-      img.src = "img/child.svg";
+      img.src = "../demo/img/child.svg";
       img.alt = "child";
       img.classList.add("child-svg");
       childGrid.appendChild(img);
@@ -16,10 +16,10 @@ jdocument.addEventListener("DOMContentLoaded", function () {
 
   function setupAnimation() {
     const children = Array.from(childGrid.children);
+    timeline.clear();
     timeline
-      .clear()
-      .set(children, { opacity: 1 }) // Ensure all children are fully visible initially
-      .to(children.slice(-4), {
+      .set(children, { opacity: 1, transform: "translateY(0)" }) // Ensure all children are fully visible initially
+      .to(children, {
         opacity: 0,
         duration: 1,
         stagger: {
@@ -27,26 +27,22 @@ jdocument.addEventListener("DOMContentLoaded", function () {
           from: "end", // Start animation from the last child (rightmost)
         },
         onComplete: () => {
-          children.slice(-4).forEach((child) => child.remove());
+          children.forEach((child) => child.remove());
+          createGrid(); // Recreate the grid once all children are removed
+          setupAnimation(); // Setup animation again
         },
       });
   }
 
   page6.addEventListener("mouseenter", function () {
     if (!timeline.isActive()) {
-      // Check if the timeline is not currently active
-      createGrid(); // Re-create the grid every time to start fresh
+      createGrid(); // Ensure grid is created
       setupAnimation();
       timeline.restart(); // Restart the timeline
     }
   });
 
-  page6.addEventListener("mouseleave", function () {
-    timeline.pause(); // Simply pause the timeline
-    timeline.clear(); // Optionally clear the timeline if needed
-    childGrid.innerHTML = ""; // Clear the grid to ensure a fresh start next time
-  });
-
+  // No need to clear the grid on mouseleave, remove mouseleave handler
   // Initial setup
   createGrid();
   setupAnimation();
