@@ -158,4 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
       canvas.title = "";
     }
   });
+  canvas.addEventListener("click", function () {
+    if (!isAnimating) {
+      drawPieChart();
+    }
+  });
 });
