@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       onHover: (event, chartElement) => {
         if (chartElement.length) {
           chart.getDatasetMeta(0).data[chartElement[0].index].backgroundColor =
-            "rgba(165, 215, 232, 0.6)";
+            "rgba(295, 295, 92, 0.6)";
           chart.update("none"); // Only redraw the chart to show hover effect
         } else {
           chart.data.datasets[0].backgroundColor = [

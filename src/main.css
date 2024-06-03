@@ -6,6 +6,7 @@ html {
   background-color: #0b2447;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* .navbar {
@@ -453,7 +454,7 @@ canvas {
 
 /*page8*/
 .custom-link {
-  color: #d2042d;
+  color: white;
 }
 
 /* ending */
@@ -620,6 +621,9 @@ div.drop-container:after {
 .g_img-text .p_img-text li {
   text-align: left; /* Ensures text within <li> is left-aligned */
 }
+
+/* 3D */
+
 /* 3D */
 #three-container {
   width: 800px; /* Width of the 3D view */
@@ -628,5 +632,148 @@ div.drop-container:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0b2447; /* Optional: background color */
+  background-color: #a5d7e8; /* Optional: background color */
+  position: relative;
+}
+
+#three-container::before,
+#three-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensures the pseudo-elements do not interfere with interactions */
+}
+
+#three-container::before {
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid transparent;
+  box-sizing: border-box;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+
+#three-container::after {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  box-sizing: border-box;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+}
+
+#three-container::before {
+  clip-path: polygon(
+    0% 0%,
+    10% 0%,
+    10% 10%,
+    0% 10%,
+    0% 90%,
+    10% 90%,
+    10% 100%,
+    0% 100%,
+    0% 100%,
+    0% 0%
+  );
+}
+
+#three-container::after {
+  clip-path: polygon(
+    90% 0%,
+    100% 0%,
+    100% 10%,
+    90% 10%,
+    90% 90%,
+    100% 90%,
+    100% 100%,
+    90% 100%,
+    90% 100%,
+    90% 0%
+  );
+}
+
+/* footer */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0b2447; /* Match your site's background */
+  color: #fff;
+  font-size: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  margin-top: 10px;
+}
+
+.footer-col {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+}
+
+.footer-col p {
+  margin: 5px 0;
+}
+
+.name-icon-container {
+  display: flex;
+  justify-content: space-between; /* Space out the divs evenly */
+  width: 100%;
+  margin-bottom: 10px; /* Space between rows */
+}
+
+.name-icon {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  margin: 0 10px; /* Space between divs */
+}
+
+.name-icon img {
+  width: 20px; /* Set the LinkedIn icon size */
+  height: auto;
+  margin-left: 5px; /* Space between text and icon */
+}
+
+.footer-col-right {
+  align-items: flex-end; /* Align items to the right within the flex container */
+  text-align: right; /* Right-align text within the container */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center; /* Center text for smaller screens */
+  }
+  .footer-col {
+    align-items: center; /* Center items on small screens */
+  }
+  .footer-col-right {
+    align-items: center; /* Center items on small screens */
+    text-align: center; /* Center text for smaller screens */
+  }
+  .name-icon-container {
+    flex-direction: column; /* Stack name-icon divs vertically on small screens */
+    align-items: center;
+  }
+  .name-icon {
+    margin: 5px 0; /* Adjust margin for vertical stacking */
+  }
+}
+
+.github-img {
+  width: 20px; /* Set the GitHub icon size */
+  height: auto;
+  margin-left: 5px; /* Space between text and icon */
 }
