@@ -371,7 +371,7 @@ canvas {
   }
 }
 
-/* Page6 基础样式 */
+/* Page6 */
 #page6 {
   display: flex;
   flex-direction: column;
@@ -521,9 +521,9 @@ canvas {
 
 div.drop-container {
   position: absolute;
-  top: 50%; /* 确保动画在垂直方向中间 */
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 完全居中 */
+  transform: translate(-50%, -50%);
   height: 200px;
   width: 200px;
   margin: 0;
@@ -544,12 +544,12 @@ h2 {
   color: white;
   position: absolute;
   font-size: 2.5em;
-  top: 50%; /* 确保 h2 也在垂直方向中间 */
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 完全居中 */
+  transform: translate(-50%, -50%);
   z-index: 2;
   opacity: 0;
-  animation: appear 2s 2.5s forwards; /* 动画结束后显示 */
+  animation: appear 2s 2.5s forwards;
 }
 
 @keyframes appear {
@@ -612,13 +612,36 @@ div.drop-container:after {
 
 .drop-text {
   position: absolute;
-  bottom: 10%; /* 位置调整至底部 */
+  bottom: 10%;
   width: 80%;
   text-align: center;
   padding: 20px;
   color: white;
 }
 
+.click-prompt {
+  color: white;
+  font-size: 1em;
+  animation: blink 1.5s infinite;
+  position: absolute;
+  bottom: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 123, 255, 0.7);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
 /* page9 */
 
 .g_img-text .p_img-text p {
@@ -672,6 +695,7 @@ div.drop-container:after {
 .g_img-text .p_img-text li {
   text-align: left; /* Ensures text within <li> is left-aligned */
 }
+
 /* 3D */
 
 #page3d {

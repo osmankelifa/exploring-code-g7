@@ -1,68 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
   const endingPart = document.getElementById("ending-part");
-  const sound = document.getElementById("waterDropSound"); // Get the audio element
+  const dropContainer = endingPart.querySelector(".drop-container");
+  const drop = dropContainer.querySelector(".drop");
+  const h2 = endingPart.querySelector("h2");
+  const clickPrompt = endingPart.querySelector(".click-prompt");
+  const sound = document.getElementById("waterDropSound"); // 获取音频元素
+
+  // 绑定点击事件，开始动画和音频播放
+  dropContainer.addEventListener("click", function () {
+    playAnimation();
+    clickPrompt.style.display = "none"; // 点击时隐藏提示
+    try {
+      sound.play(); // 用户交互后播放音频
+    } catch (error) {
+      console.error("Audio play failed:", error);
+    }
+  });
 
   function playAnimation() {
-    const dropContainer = endingPart.querySelector(".drop-container");
-    const drop = dropContainer.querySelector(".drop");
-    const h2 = endingPart.querySelector("h2");
-
-    // Reset animations
+    // 重置动画
     drop.style.animation = "none";
     h2.style.animation = "none";
-    dropContainer.style.animation = "none";
 
-    // Trigger reflow to restart the animation
+    // 触发重排来重新开始动画
     void drop.offsetWidth;
     void h2.offsetWidth;
-    void dropContainer.offsetWidth;
 
-    // Start animations
+    // 开始动画
     drop.style.animation = "drip 3s forwards";
     h2.style.animation = "appear 2s 2.5s forwards";
-    dropContainer.style.animation = "";
-
-    // Play the sound
-    sound.currentTime = 0; // Reset the audio to start
-    sound.play(); // Play the audio
-  }
-
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  function checkAndPlayAnimation() {
-    if (isElementInViewport(endingPart)) {
-      playAnimation();
-    }
-  }
-
-  // Using IntersectionObserver to ensure the animation plays when the element is in the viewport
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          playAnimation();
-        }
-      });
-    },
-    {
-      threshold: 0.5, // Adjust this value as needed
-    }
-  );
-
-  observer.observe(endingPart);
-
-  // Fallback to check on scroll if IntersectionObserver is not supported
-  if (!("IntersectionObserver" in window)) {
-    window.addEventListener("scroll", checkAndPlayAnimation);
-    checkAndPlayAnimation();
+    drop.style.transform = "scale(1)"; // 使水滴恢复正常大小并开始动画
   }
 });
