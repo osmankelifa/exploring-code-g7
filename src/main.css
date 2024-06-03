@@ -586,7 +586,6 @@ div.drop-container:after {
 .g_img-text .p_img-text li {
   text-align: left; /* Ensures text within <li> is left-aligned */
 }
-
 /* 3D */
 #three-container {
   width: 800px; /* Width of the 3D view */

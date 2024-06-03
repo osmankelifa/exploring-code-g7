@@ -1,34 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
-
-const innerCircle = document.getElementById("innerCircle");
-const outerCircle = document.getElementById("outerCircle");
-
-gsap.to(innerCircle, {
-  rotation: 360,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".page3-container",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 40,
-    markers: false,
-  },
-  transformOrigin: "center center",
-});
-
-gsap.to(outerCircle, {
-  rotation: -360,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".page3-container",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 40,
-    markers: false,
-  },
-  transformOrigin: "center center",
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("pieChart");
   const ctx = canvas.getContext("2d");
