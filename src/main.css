@@ -140,28 +140,41 @@ section {
 }
 
 /* page2 */
+
 #page2 {
-  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .canvas-container {
-  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: auto;
+  width: 100%;
   margin-bottom: 20px;
 }
 
 .text-section {
-  padding: 80px;
-  margin: 20px;
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+  font-size: 3rem;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: auto 20px;
   border-radius: 8px;
-  flex: 1;
-  font-size: 40px;
 }
 
 canvas {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -267,6 +280,16 @@ canvas {
   }
 }
 /* page4 */
+#page4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .svg-container {
   display: flex;
   justify-content: center;
@@ -283,6 +306,16 @@ canvas {
 }
 
 /* page5 */
+#page5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .cup {
   position: relative;
   transform: translate(-50%, -50%);
@@ -338,24 +371,29 @@ canvas {
   }
 }
 
-/* Page6 */
+/* Page6 基础样式 */
 #page6 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .content-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* Clock styles */
 .clock-container {
-  width: 150px; /* Adjust width as needed */
-  height: 150px; /* Adjust height as needed */
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -404,37 +442,53 @@ canvas {
   }
 }
 
-/*child css*/
+/* Child grid styles */
 .child-grid-container {
   position: relative;
   height: 280px; /* Maintain height to prevent text movement */
+  width: 100%; /* Ensure it fills the container */
 }
 
 .child-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-  padding: 60px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(160px, 1fr)
+  ); /* Responsive grid columns */
+  gap: 10px; /* Reduced gap for better fit */
+  padding: 20px; /* Reduced padding */
   justify-content: center;
   align-items: center;
 }
 
 .child-grid img {
-  width: 160px;
-  height: 160px;
+  width: 100%; /* Make images responsive within grid */
+  height: auto; /* Maintain aspect ratio */
   filter: invert(80%);
   opacity: 1;
-  transform: translateY(0);
   transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clock-container {
+    margin-bottom: 5px; /* 在较小屏幕上进一步减少间距 */
+  }
+  .text-section {
+    font-size: 0.8rem; /* 在小屏幕上减小字体大小 */
+  }
 }
 
 /*page7*/
 #page7 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .canvas-container {
@@ -451,9 +505,6 @@ canvas {
 }
 
 /*page8*/
-.custom-link {
-  color: white;
-}
 
 /* ending */
 
@@ -461,21 +512,21 @@ canvas {
   position: relative;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   font-size: 20px;
   text-align: center;
 }
 
 div.drop-container {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
+  top: 50%; /* 确保动画在垂直方向中间 */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全居中 */
   height: 200px;
   width: 200px;
+  margin: 0;
 }
 
 div.drop {
@@ -485,7 +536,6 @@ div.drop {
   height: 100%;
   border-radius: 100% 5% 100% 100%;
   transform: rotate(-45deg);
-  margin: 0px;
   background: deepskyblue;
   animation: drip 4s forwards;
 }
@@ -494,16 +544,12 @@ h2 {
   color: white;
   position: absolute;
   font-size: 2.5em;
-  height: 1em;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%; /* 确保 h2 也在垂直方向中间 */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全居中 */
   z-index: 2;
-  margin: auto;
-  text-align: center;
   opacity: 0;
-  animation: appear 2s 2.5s forwards;
+  animation: appear 2s 2.5s forwards; /* 动画结束后显示 */
 }
 
 @keyframes appear {
@@ -563,8 +609,14 @@ div.drop-container:after {
     opacity: 0;
   }
 }
+
 .drop-text {
-  margin-top: 600px;
+  position: absolute;
+  bottom: 10%; /* 位置调整至底部 */
+  width: 80%;
+  text-align: center;
+  padding: 20px;
+  color: white;
 }
 
 /* page9 */
@@ -573,6 +625,7 @@ div.drop-container:after {
   opacity: 1; /* Ensure paragraphs are fully visible */
   font-size: 1.2em; /* Increase the font size */
   transition: opacity 0.5s ease-in-out; /* Smooth transition for any future opacity changes */
+  margin: 10px;
 }
 
 .water-heading {
@@ -620,6 +673,18 @@ div.drop-container:after {
   text-align: left; /* Ensures text within <li> is left-aligned */
 }
 /* 3D */
+
+#page3d {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #three-container {
   width: 800px; /* Width of the 3D view */
   height: 600px; /* Height of the 3D view */
@@ -687,8 +752,15 @@ div.drop-container:after {
   width: calc(100% - 8px);
   height: calc(100% - 8px);
 }
+
+.custom-link {
+  color: white;
+}
+
 /* footer */
+
 .site-footer {
+  margin-top: 20px;
   text-align: center;
   padding: 20px;
   background-color: #0b2447; /* Match your site's background */
