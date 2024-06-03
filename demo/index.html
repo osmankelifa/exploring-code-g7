@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Water is life</title>
+    <link rel="icon" type="image/png" href="img/water.png" />
     <link rel="stylesheet" type="text/css" href="../dist/jquery.ripples.css" />
     <link rel="stylesheet" href="../src/main.css" />
     <link
@@ -14,15 +15,31 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+	<script type="importmap">
+		{
+		  "imports": {
+			"three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js",
+			"three/addons/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/controls/OrbitControls.js"
+		  }
+		}
+		</script>
+
   </head>
   <body>
+		<nav class="navbar">
+      <a href="./index.html">
+			<img src="./img/worldlogo4.png" class="logo"></img>
+    </a>
+			<button class="button" onclick="button()">UNICEF</button>
+		</nav>
+		<!-- page 1 -->
     <div class="overlay-text">
       Water is life:<br />
       Protecting our most precious Resource
     </div>
 
-    <!-- <header id="navbar">Navigation Bar</header> -->
     <main>
+		<!-- page 2 -->
       <section id="page2">
         <div class="canvas-container">
           <canvas id="pieChart" width="400" height="400"></canvas>
@@ -32,6 +49,7 @@
           still lack access to safe drinking water.
         </div>
       </section>
+	  <!-- page 3 -->
       <section id="page3">
         <div class="page3-container">
           <div class="circle-container">
@@ -55,6 +73,7 @@
           </div>
         </div>
       </section>
+	  <!-- page 4 -->
       <section id="page4">
         <div class="svg-container">
           <img
@@ -71,20 +90,74 @@
             id="toilet"
           />
         </div>
-        <div class="page4-text-section">
+        <div class="text-section">
           <strong class="text-content_in">419 million</strong> people practice
           open defecation.
         </div>
       </section>
+	  <!-- page 5 -->
       <section id="page5">
         <div class="cup"></div>
-        <div class="page5-text-section">
+        <div class="text-section">
           <strong class="text-content_in">1.7 billion</strong> people drink
           water contaminated with feces.<br />
           This contamination poses severe health risks, including diseases such
           as cholera, dysentery, typhoid, and polio.
         </div>
       </section>
+	  <!-- page 6 -->
+	  <section id="page6">
+		<div class="content-container">
+		  <div class="clock-container">
+			<div class="clock">
+			  <div class="clock__second"></div>
+			  <div class="clock__axis"></div>
+			</div>
+		  </div>
+		  <div class="child-grid-container">
+			<div class="child-grid"></div>
+		  </div>
+		</div>
+		<div class="text-section">
+		  Every <strong class="text-content_in"> 2 minutes</strong>, a child dies from a water-related disease.<br/> Over <strong>700 </strong>children under the age of five die  <strong class="text-content_in">each day</strong>.
+		</div>
+	  </section>
+	  
+      <!-- page 7 -->
+	  
+	  <section id="page7">
+		<div class="canvas-container">
+			<canvas id="barChart"></canvas>
+		</div>
+		<div class="text-section">
+			In areas of conflict, children are nearly <strong class="text-content_in">20 times</strong> more likely to die from diarrhoeal disease than from the conflict itself.
+		</div>
+	</section>
+	
+	
+	 
+	<section id="ending-part">
+		<div class="ending-container">
+			<audio id="waterDropSound" src="audio/two-drops.mp3" preload="auto"></audio>
+			<div class="drop-container animate">
+				<div class="drop" id="clickableDrop"></div>
+			</div>
+			<h2>WATER MATTERS</h2>
+			<div class="text-section drop-text">
+				Clean water is essential for life, yet many communities around the world face severe water shortages and contamination issues.<br>
+				<a href="https://water.org/" class="custom-link">Explore the challenges and discover how you can help.</a>
+			</div>
+		</div>
+	</section>
+
+	
+   
+     
+	     <!-- 3D  -->
+		 <section id="3d">
+		
+		<div id="three-container"></div><!-- ending page  -->
+	  </section>
       <section id="page6">
         <div class="page6-text-section">
           785 million people lack access to clean water.
@@ -160,6 +233,10 @@
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.x/dist/gsap.min.js"></script>
+
     <script src="../dist/jquery.ripples.js"></script>
     <script src="../src/basic.js"></script>
     <script src="../src/wordAppear.js"></script>
@@ -169,5 +246,8 @@
     <script src="../src/endingAnimation.js"></script>
     <script src="../src/wallAnimation.js"></script>
     <script src="../src/cupAnimation.js"></script>
+    <script src="../src/childAnimation.js"></script>
+	 <script src="../src/barChart.js"></script>
+   <script type="module" src="../src/3D.js"></script>
   </body>
 </html>

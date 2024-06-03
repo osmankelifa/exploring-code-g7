@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.querySelector(".overlay-text");
   const line1 = "Water is life:";
-  const line2 = "Protecting our most precious Resource";
+  const line2 = "Protecting our most precious Resource!";
 
   const wordsLine1 = line1.split(" ");
   const wordsLine2 = line2.split(" ");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tl.from(
       wordSpan,
-      {
+      { 
         duration: 1,
         y: 100,
         opacity: 0,
@@ -49,3 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     wordsLine1.length * 0.5
   );
 });
+
+
+function button() {
+  window.open("https://www.unicef.org", "_blank");
+}

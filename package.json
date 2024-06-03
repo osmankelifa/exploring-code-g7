@@ -33,12 +33,14 @@
     "jquery": ">=1.7.0"
   },
   "devDependencies": {
+    "jquery": ">=1.7.0",
     "rollup": "^0.45.1",
     "rollup-plugin-license": "^0.6.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "jquery": ">=1.7.0"
+    "rollup-plugin-uglify": "^2.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.164.1"
+  },
   "files": [
     "dist",
     "README.md"
