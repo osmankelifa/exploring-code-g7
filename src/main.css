@@ -453,15 +453,10 @@ canvas {
 
 /*page8*/
 .custom-link {
-  text-decoration: none;
   color: #d2042d;
 }
 
 /* ending */
-/*body {
-  background-color: #3498DB;
-  overflow: hidden;
-}*/
 
 #ending-part {
   position: relative;
@@ -473,7 +468,7 @@ canvas {
   text-align: center;
 }
 
-.drop-container {
+div.drop-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -484,7 +479,7 @@ canvas {
   width: 200px;
 }
 
-.drop-container .drop {
+div.drop {
   position: absolute;
   top: -25%;
   width: 100%;
@@ -494,156 +489,6 @@ canvas {
   margin: 0px;
   background: deepskyblue;
   animation: drip 4s forwards;
-}
-
-#water-saving-technologies {
-  background-color: #A5D7E8;
-  width: 100%;
-  padding: 20px;
-}
-
-.water-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  text-align: left;
-  padding: 0 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  position: relative;
-}
-
-.water-heading h1 {
-  font-size: 3em;
-  font-weight: bold;
-  margin: 0;
-}
-
-.animation-container {
-  position: relative;
-  right: 0;
-  top: 50%;
-  /*transform: translateY(-50%);*/
-  display: flex;
-  align-items: center;
-}
-
-.animation-container .drop {
-  width: 10px;
-  height: 10px;
-  background: #FFF;
-  position: absolute;
-  top:-20px;
-  left: 50%;  
-  border-radius: 20px;
-  animation: drip 2s cubic-bezier(1, 0, .91, .19) infinite;
-  transform: translateX(-50%);
-}
-
-
-.animation-container .drop:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 15px solid rgba(255, 255, 255, 1);
-  top: -10px;
-}
-
-.animation-container .wave {
-  width: 2px;
-  height: 1px;
-  border: #FFF 7px solid;
-  border-radius: 300px / 150px;
-  animation: ripple 2s infinite;
-  margin-left: 10px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.animation-container .wave:after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 1px;
-  border: #FFF 5px solid;
-  border-radius: 300px / 150px;
-  animation: ripple-2 2s infinite;
-}
-
-@keyframes ripple {
-  from {
-    opacity: 1;
-  }
-  to {
-    width: 600px;
-    height: 300px;
-    border-width: 1px;
-    top: -100px;
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-2 {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    width: 200px;
-    height: 100px;
-    border-width: 1px;
-    top: 100px;
-    left: 200px;
-  }
-}
-
-@keyframes drip {
-  to {
-    top: 190px;
-  }
-}
-
-.g_img-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.w-layout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: center;
-}
-
-.img_reveal-img {
-  height: auto;
-  border-radius: 8px;
-  width: 400px;
-  height: 300px;
-  object-fit: contain;
-}
-
-.p_img-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.p_img-text p {
-  margin: 0 0 10px 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
 }
 
 h2 {
@@ -671,8 +516,8 @@ h2 {
   }
 }
 
-.drop-container:before,
-.drop-container:after {
+div.drop-container:before,
+div.drop-container:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -687,8 +532,21 @@ h2 {
   animation: dripple 2s ease-out 1s;
 }
 
-.drop-container:after {
+div.drop-container:after {
   animation: dripple 2s ease-out 1.7s;
+}
+
+@keyframes drip {
+  45% {
+    top: 0;
+    border-radius: 100% 5% 100% 100%;
+    transform: rotate(-45deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+    border-radius: 100%;
+  }
 }
 
 @keyframes dripple {
@@ -710,6 +568,58 @@ h2 {
   margin-top: 600px;
 }
 
+/* page9 */
+
+.g_img-text .p_img-text p {
+  opacity: 1; /* Ensure paragraphs are fully visible */
+  font-size: 1.2em; /* Increase the font size */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for any future opacity changes */
+}
+
+.water-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.g_img-text {
+  display: flex; /* Flexbox layout for side-by-side arrangement */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Space between the image and text */
+  margin-bottom: 40px; /* Space between each section */
+}
+
+.c_animated-img,
+.p_img-text {
+  flex: 1; /* Each takes up half of the container */
+  padding: 20px; /* Padding around content */
+}
+
+.img_reveal-img {
+  width: 100%; /* Full width of the parent container */
+  height: auto; /* Keep the aspect ratio of the image */
+  display: block; /* Remove any inline defaults */
+}
+
+.p_img-text {
+  padding-left: 20px; /* Padding between the image and the text */
+}
+
+@media (max-width: 768px) {
+  .g_img-text {
+    flex-direction: column; /* Stack image and text vertically on small screens */
+  }
+  .c_animated-img,
+  .p_img-text {
+    padding: 10px;
+    flex: none; /* Take the width as needed */
+  }
+  .p_img-text {
+    padding-left: 0; /* No left padding on small screens */
+  }
+}
+.g_img-text .p_img-text li {
+  text-align: left; /* Ensures text within <li> is left-aligned */
+}
 /* 3D */
 #three-container {
   width: 800px; /* Width of the 3D view */
