@@ -3,7 +3,7 @@ html {
   height: 100%;
   width: 100%;
   font-family: serif;
-  background-color: #0b2447;
+  background-color: #19376D;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -14,8 +14,8 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
@@ -67,7 +67,7 @@ html {
   cursor: pointer;
   display: flex;
   font-family: "JetBrains Mono", monospace;
-  height: 48px;
+  height: 45px;
   justify-content: center;
   line-height: 1;
   list-style: none;
@@ -150,6 +150,7 @@ section {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-image: linear-gradient( #203d59, #19376D);
 }
 
 .canvas-container {
@@ -162,10 +163,9 @@ section {
 }
 
 .text-section {
-  width: 80%;
   max-width: 1200px;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 20px;
   box-sizing: border-box;
   margin: auto 20px;
@@ -804,7 +804,7 @@ div.drop-container:after {
   margin-top: 20px;
   text-align: center;
   padding: 20px;
-  background-color: #0b2447; /* Match your site's background */
+  background-color: #19376D; /* Match your site's background */
   color: #fff;
   font-size: 20px;
 }
